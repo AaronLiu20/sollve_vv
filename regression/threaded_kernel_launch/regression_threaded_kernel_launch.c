@@ -1,4 +1,4 @@
-//===--- test_target_update_depend.c ----------------------------------------===//
+//===--- regression_threaded_kernel_launch.c ----------------------------------------===//
 //
 // OpenMP API Version 4.5
 //

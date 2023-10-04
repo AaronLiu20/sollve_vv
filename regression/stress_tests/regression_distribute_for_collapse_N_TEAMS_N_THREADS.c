@@ -1,3 +1,14 @@
+//===--- regression_distribute_for_collapse_N_TEAMS_N_THREADS.c ----------------------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// Test #pragma omp target teams distribute parallel for collapse() on an 
+// N_DIM*N_DIM*N_DIM*N_DIM array by writing to it. Testing on a gloabal 
+// array with at least 3-4 dimensions in order to do a for sollapse of
+// at least 3-4. To ensure that each write to array occurred only once.
+//
+////===----------------------------------------------------------------------===//
+
 #include <stdio.h>
 #include <omp.h>
 
