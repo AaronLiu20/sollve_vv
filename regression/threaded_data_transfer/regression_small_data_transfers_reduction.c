@@ -1,5 +1,15 @@
-// this tests uses 6 differently sized arrays and performs 3 data transfers
-// within the pragma while also peforming the +=, -= and *= reductions
+//===--- regression_large_data_transfer_reduction.c --------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// this test is meant to test the runtime for the reduction clause while also 
+// performing data transfers between the accelerator and the host
+//
+// Clause being tested
+// reduction (+=, -=, *=, |=, &=, ^=) 
+//
+// Author: Aaron Liu <olympus@udel.edu> Oct 2023
+////===----------------------------------------------------------------------===//
 
 #include <omp.h>
 #include <stdio.h>

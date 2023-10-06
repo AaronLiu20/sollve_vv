@@ -1,7 +1,15 @@
-// this test uses 16 differently sized arrays and performs 8 data transfers
-// using 10000 threads as well as +=, -=, *=, |=, &=, and ^= reductions it
-// peforms three sum reductions since i dont know how to use && and ||
-// reductions
+//===--- regression_large_data_transfer_reduction.c --------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// this test is meant to test the runtime for the reduction clause while also 
+// performing data transfers between the accelerator and the host
+//
+// Clause being tested
+// reduction (+=, -=, *=, |=, &=, ^=) 
+//
+// Author: Aaron Liu <olympus@udel.edu> Oct 2023
+////===----------------------------------------------------------------------===//
 
 #include <omp.h>
 #include <stdio.h>
@@ -217,15 +225,5 @@ int main() {
     error += 1;
   }
 
-  printf("program created %d amount of errors\n", error);
-  printf(" (^= Reduction) host = %d device = %d\n (|= Reduction) host = %d "
-         "device = %d\n (&= Reduction) host = %d device = %d\n (*= Reduction) "
-         "host = %d device = %d\n (-= Reduction) host = %d device = %d\n (+= "
-         "Reduction) host = %d device = %d\n (+= Reduction) host = %d device = "
-         "%d\n (+= Reduction) host = %d device = %d\n",
-         hostReduction1, deviceReduction1, hostReduction2, deviceReduction2,
-         hostReduction3, deviceReduction3, hostReduction4, deviceReduction4,
-         hostReduction5, deviceReduction5, hostReduction6, deviceReduction6,
-         hostReduction7, deviceReduction7, hostReduction8, deviceReduction8);
   return error;
 }

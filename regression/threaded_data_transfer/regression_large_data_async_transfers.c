@@ -1,5 +1,16 @@
-// this tests async data transfer between the host and the device using 4 host
-// arrays and 1 device array
+//===--- regression_large_data_async_transfers.c ------------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// this tests performs asynchrous data transfer from the host to the device. this
+// test is mean to stress out the runtime by performing 8 asynchrous operations 
+// at once
+//
+// Routine being tested
+// omp_target_memcpy_async
+//
+// Author: Aaron Liu <olympus@udel.edu> Oct 2023
+////===----------------------------------------------------------------------===//
 
 #include <math.h>
 #include <omp.h>

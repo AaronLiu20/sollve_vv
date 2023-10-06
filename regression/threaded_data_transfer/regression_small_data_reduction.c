@@ -1,5 +1,17 @@
-// this tests uses 3 differently sized arrays to perform +=, -=, and *=
-// reductions
+//===--- regression_small_data_reduction.c ----------------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// this test 8 differently sized array using 10000 threads to perform +=, -=,
+// *=, |=, &=, and ^= reductions it peforms three sum reductions since i dont
+// know how to use && and || reductions
+//
+// Clause being tested
+// reduction
+//
+// Author: Aaron Liu <olympus@udel.edu> Oct 2023
+////===----------------------------------------------------------------------===//
+
 
 #include <omp.h>
 #include <stdio.h>

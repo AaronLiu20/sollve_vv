@@ -1,5 +1,12 @@
-// this test uses 16 different sized arrays to perform 8 data transfers within
-// the pragma
+//===--- regression_large_data_transfers.c ---------------------------------===//
+//
+// OpenMP API Version 4.5
+//
+// this is meant to test stress the runtime for the data transfers using 8 
+// differently sized arrays 
+//
+// Author: Aaron Liu <olympus@udel.edu> Oct 2023
+////===----------------------------------------------------------------------===//
 
 #include <omp.h>
 #include <stdio.h>
