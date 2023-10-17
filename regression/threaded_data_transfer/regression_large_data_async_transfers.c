@@ -97,7 +97,6 @@ int main() {
   omp_target_memcpy_async(host_memory1, device_memory8,
                           sizeof(double) * array_size1, 0, 0, host, device, 0,
                           NULL);
-
 #pragma omp taskwait
   for (int i = 0; i < N; i++) {
     if (i < array_size8) {
