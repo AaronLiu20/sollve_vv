@@ -1,6 +1,7 @@
-//===--- test_target_memcpy_async_depobj.c ----------------------------===//
+//===--- regresssion_large_data_async_transfers.c ----------------------------===//
 //
-//  Inspired from OpenMP 5.1 Examples Doc, 5.16.4 & 8.9
+//  test based off of 5.1/target/test_target_memcpy_async_depobj.c
+//
 //  This test utilizes the omp_target_memcpy_async construct to
 //  allocate memory on the device asynchronously. The construct
 //  uses 'obj' for dependency, so that memory is only copied once
