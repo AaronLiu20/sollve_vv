@@ -18,7 +18,7 @@
 
 int errors, i;
 
-int test_target_memcpy_async_depobj() {
+int regression_large_data_async_transfers() {
 
     int host = omp_get_initial_device();
     int device = omp_get_default_device();
@@ -109,6 +109,27 @@ int test_target_memcpy_async_depobj() {
     #pragma omp taskwait depend(depobj: obj)
     for(int i = 0; i < array_size8; i++){
         OMPVV_TEST_AND_SET(errors, host_memory8[i]!=i*2);
+	if( i < array_size7){
+	    OMPVV_TEST_AND_SET(errors, host_memory7[i]!=i*2);
+	}
+	if( i < array_size6){
+	    OMPVV_TEST_AND_SET(errors, host_memory6[i]!=i*2);
+	}
+	if( i < array_size5){
+	    OMPVV_TEST_AND_SET(errors, host_memory5[i]!=i*2);
+	}
+        if( i < array_size4){
+	    OMPVV_TEST_AND_SET(errors, host_memory4[i]!=i*2);
+	}
+        if( i < array_size3){
+	    OMPVV_TEST_AND_SET(errors, host_memory3[i]!=i*2);
+	}
+        if( i < array_size2){
+	    OMPVV_TEST_AND_SET(errors, host_memory2[i]!=i*2);
+	}
+        if( i < array_size1){
+	    OMPVV_TEST_AND_SET(errors, host_memory1[i]!=i*2);
+	}
     }
     // free resources
     free(host_memory8);
@@ -128,6 +149,6 @@ int test_target_memcpy_async_depobj() {
 int main() {
    errors = 0;
    OMPVV_TEST_OFFLOADING;
-   OMPVV_TEST_AND_SET_VERBOSE(errors, test_target_memcpy_async_depobj() != 0);
+   OMPVV_TEST_AND_SET_VERBOSE(errors, regression_large_data_async_transfers() != 0);
    OMPVV_REPORT_AND_RETURN(errors);
 }
